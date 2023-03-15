@@ -13,12 +13,13 @@ public class LoginPage extends BasePage {
         this.driver = driver;
     }
 
+    String url = "https://www.saucedemo.com/";
     By username = By.id("user-name");
     By password = By.id("password");
     By signButton = By.id("login-button");
 
     public void OpenLoginPage(){
-        driver.get("https://www.saucedemo.com/");
+        driver.get(PropertyReader.readItem("baseUrl"));
     }
 
     public void loginWithUser(){

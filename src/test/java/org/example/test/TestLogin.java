@@ -19,8 +19,9 @@ public class TestLogin extends TestBase {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.OpenLoginPage();
         loginPage.loginWithUser();
+        InventoryPage inventoryPage = loginPage.afterLogin();
+        Assert.assertEquals(driver.getCurrentUrl(), inventoryPage.getInventoryUrl());
         takeScreenShot("login with user");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
 
     @Severity(SeverityLevel.CRITICAL)
